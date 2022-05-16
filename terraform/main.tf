@@ -63,11 +63,18 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = ["10.7.0.0/16"]
 }
 
-resource "azurerm_subnet" "default" {
-  name                 = "default"
+resource "azurerm_subnet" "fw" {
+  name                 = "AzureFirewallSubnet"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.7.0.0/24"]
+}
+
+resource "azurerm_subnet" "default" {
+  name                 = "snet-${local.gh_repo}"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.7.1.0/24"]
 }
 
 
@@ -88,7 +95,7 @@ resource "azurerm_firewall" "fw" {
 
   ip_configuration {
     name                 = "configuration"
-    subnet_id            = azurerm_subnet.default.id
+    subnet_id            = azurerm_subnet.fw.id
     public_ip_address_id = azurerm_public_ip.fw.id
   }
 }
