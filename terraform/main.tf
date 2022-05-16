@@ -155,6 +155,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
 
   automatic_os_upgrade_policy {
     enable_automatic_os_upgrade = false
+    disable_automatic_rollback = false
   }  
 
   source_image_reference {
