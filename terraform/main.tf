@@ -137,7 +137,7 @@ resource "azurerm_route_table" "default" {
   route {
     name           = "vnethop"
     address_prefix = "10.7.0.0/16"
-    next_hop_type  = "vnetlocal"
+    next_hop_type  = "VnetLocal"
   }
   route {
     name                   = "fwhop"
