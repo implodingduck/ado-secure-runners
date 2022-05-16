@@ -160,9 +160,12 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   instances                       = 1
   overprovision                   = false
   admin_username                  = "azureuser"
-  disable_password_authentication = true
   upgrade_mode                    = "Manual"
 
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("id_rsa.pub")
+  }
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"

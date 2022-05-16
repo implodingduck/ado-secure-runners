@@ -66,6 +66,7 @@ jobs:
         run: |
             echo "starting..."
             cd terraform
+            echo ${{ secrets.VM_PUB_KEY }} > id_rsa.pub
             ./env_setup.sh
             terraform init --backend-config=backend.tfvars
             terraform plan -out theplan
