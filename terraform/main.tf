@@ -136,7 +136,7 @@ resource "azurerm_route_table" "default" {
     name                   = "fwhop"
     address_prefix         = "internet"
     next_hop_type          = "VirtualAppliance"
-    next_hop_in_ip_address = azurerm_firewall.fw.ip_configuration.private_ip_address
+    next_hop_in_ip_address = azurerm_firewall.fw.ip_configuration[0].private_ip_address
   }
 
 }
