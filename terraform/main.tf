@@ -164,7 +164,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("id_rsa.pub")
+    public_key = file("./id_rsa.pub")
   }
   source_image_reference {
     publisher = "Canonical"

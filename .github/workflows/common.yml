@@ -63,10 +63,11 @@ jobs:
           TF_VAR_subscription_id: ${{ steps.kvAction.outputs.subscription-id }}
           TF_VAR_key: ${{ github.repository }}.tfstate
           TF_VAR_gh_repo: ${{ github.repository }}
+          VM_PUB_KEY: ${{ secrets.VM_PUB_KEY }} 
         run: |
             echo "starting..."
             cd terraform
-            echo ${{ secrets.VM_PUB_KEY }} > id_rsa.pub
+            echo $VM_PUB_KEY > id_rsa.pub
             ./env_setup.sh
             terraform init --backend-config=backend.tfvars
             terraform plan -out theplan
