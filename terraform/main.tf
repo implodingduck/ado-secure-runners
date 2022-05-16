@@ -153,14 +153,15 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
     azurerm_firewall_network_rule_collection.https,
     azurerm_route_table.default
   ]
-  name                = "vmss-${local.gh_repo}"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  sku                 = "Standard_D2s_v3"
-  instances           = 1
-  overprovision       = false
-  admin_username      = "azureuser"
-  upgrade_mode        = "Manual"
+  name                            = "vmss-${local.gh_repo}"
+  resource_group_name             = azurerm_resource_group.rg.name
+  location                        = azurerm_resource_group.rg.location
+  sku                             = "Standard_D2s_v3"
+  instances                       = 1
+  overprovision                   = false
+  admin_username                  = "azureuser"
+  disable_password_authentication = true
+  upgrade_mode                    = "Manual"
 
   source_image_reference {
     publisher = "Canonical"
