@@ -141,7 +141,7 @@ resource "azurerm_route_table" "default" {
 
 }
 
-resource "azurerm_linux_virtual_machine_scale_set" "example" {
+resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   depends_on = [
     azurerm_firewall_network_rule_collection.https,
     azurerm_route_table.default
@@ -152,6 +152,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
   sku                 = "Standard_D2s_v3"
   instances           = 1
   overprovision       = false
+  admin_username      = "azureuser"
 
   automatic_os_upgrade_policy {
     enable_automatic_os_upgrade = false
