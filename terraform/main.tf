@@ -83,6 +83,8 @@ resource "azurerm_firewall" "fw" {
   name                = "fw-${local.gh_repo}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  sku_tier            = "Standard"
+  sku_name            =  "AZFW_VNet"
 
   ip_configuration {
     name                 = "configuration"
