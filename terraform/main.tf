@@ -160,11 +160,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   instances           = 1
   overprovision       = false
   admin_username      = "azureuser"
-
-  automatic_os_upgrade_policy {
-    enable_automatic_os_upgrade = false
-    disable_automatic_rollback = false
-  }  
+  upgrade_mode        = "Manual"
 
   source_image_reference {
     publisher = "Canonical"
