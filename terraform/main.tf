@@ -332,3 +332,9 @@ resource "azurerm_user_assigned_identity" "uai" {
 
   name = "uai-${local.gh_repo}"
 }
+
+resource "azurerm_role_assignment" "example" {
+  scope                = azurerm_resource_group.rg.id
+  role_definition_name = "Reader"
+  principal_id         = azurerm_user_assigned_identity.uai.id
+}
