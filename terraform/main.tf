@@ -77,6 +77,16 @@ resource "azurerm_subnet" "default" {
   address_prefixes     = ["10.7.1.0/24"]
 }
 
+resource "azurerm_subnet_network_security_group_association" "fw" {
+  subnet_id                 = azurerm_subnet.fw.id
+  network_security_group_id = data.azurerm_network_security_group.basic.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "default" {
+  subnet_id                 = azurerm_subnet.default.id
+  network_security_group_id = data.azurerm_network_security_group.basic.id
+}
+
 
 resource "azurerm_public_ip" "fw" {
   name                = "pip-fw-${local.gh_repo}"
