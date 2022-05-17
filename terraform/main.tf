@@ -93,41 +93,41 @@ resource "azurerm_network_security_group" "nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-  security_rule {
-    name                       = "AllowVnetInBound"
-    priority                   = 65000
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "VirtualNetwork"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "AllowVnetInBound"
+  #   priority                   = 65000
+  #   direction                  = "Inbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "VirtualNetwork"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
-  security_rule {
-    name                       = "AllowAzureLoadBalancerInBound"
-    priority                   = 65001
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "AzureLoadBalancer"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "AllowAzureLoadBalancerInBound"
+  #   priority                   = 65001
+  #   direction                  = "Inbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "AzureLoadBalancer"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
-  security_rule {
-    name                       = "DenyAllInBound"
-    priority                   = 65500
-    direction                  = "Inbound"
-    access                     = "Deny"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+  # security_rule {
+  #   name                       = "DenyAllInBound"
+  #   priority                   = 65500
+  #   direction                  = "Inbound"
+  #   access                     = "Deny"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "*"
+  #   destination_address_prefix = "*"
+  # }
 
   security_rule {
     name                       = "httpsoutbound"
@@ -140,41 +140,41 @@ resource "azurerm_network_security_group" "nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-  security_rule {
-    name                       = "AllowVnetOutBound"
-    priority                   = 65000
-    direction                  = "Outbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "VirtualNetwork"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "AllowVnetOutBound"
+  #   priority                   = 65000
+  #   direction                  = "Outbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "VirtualNetwork"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
-  security_rule {
-    name                       = "AllowAzureLoadBalancerOutBound"
-    priority                   = 65001
-    direction                  = "Outbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "AzureLoadBalancer"
-    destination_address_prefix = "VirtualNetwork"
-  }
+  # security_rule {
+  #   name                       = "AllowAzureLoadBalancerOutBound"
+  #   priority                   = 65001
+  #   direction                  = "Outbound"
+  #   access                     = "Allow"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "AzureLoadBalancer"
+  #   destination_address_prefix = "VirtualNetwork"
+  # }
 
-  security_rule {
-    name                       = "DenyAllOutBound"
-    priority                   = 65500
-    direction                  = "Outbound"
-    access                     = "Deny"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+  # security_rule {
+  #   name                       = "DenyAllOutBound"
+  #   priority                   = 65500
+  #   direction                  = "Outbound"
+  #   access                     = "Deny"
+  #   protocol                   = "Tcp"
+  #   source_port_range          = "*"
+  #   destination_port_range     = "*"
+  #   source_address_prefix      = "*"
+  #   destination_address_prefix = "*"
+  # }
 
  
   
