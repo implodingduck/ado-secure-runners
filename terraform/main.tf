@@ -154,18 +154,14 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
     azurerm_route_table.default
   ]
   name                            = "vmss-${local.gh_repo}"
-  resource_group_name             = azurerm_resource_group.rg.name
-  location                        = azurerm_resource_group.rg.location
-  sku                             = "Standard_D2s_v3"
-  instances                       = 1
-  overprovision                   = false
-  admin_username                  = "azureuser"
-  upgrade_mode                    = "Manual"
-
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("./id_rsa.pub")
-  }
+  resource_group_name = azurerm_resource_group.rg.name
+  location           = azurerm_resource_group.rg.location
+  sku                = "Standard_D2s_v3"
+  instances          = 1
+  overprovision      = false
+  upgrade_mode       = "Manual"
+  admin_username     = "azureuser"
+  admin_ssh_key      = file("./id_rsa.pub")
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
