@@ -133,6 +133,26 @@ resource "azurerm_firewall_network_rule_collection" "https" {
   }
 }
 
+
+resource "azurerm_monitor_diagnostic_setting" "fw" {
+  name               = "allTheLogs"
+  target_resource_id = azurerm_firewall.fw.id
+  log_analytics_workspace_id  = data.azurerm_log_analytics_workspace.default.id
+
+  log {
+    category = "AzureFirewallApplicationRule"
+  }
+
+  log {
+    category = "AzureFirewallNetworkRule"
+  }
+
+  log {
+    category = "AzureFirewallDnsProxy"
+  }
+
+}
+
 resource "azurerm_route_table" "default" {
   name                          = "rt-${local.gh_repo}"
   location                      = azurerm_resource_group.rg.location
