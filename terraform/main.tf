@@ -161,7 +161,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   overprovision      = false
   upgrade_mode       = "Manual"
   admin_username     = "azureuser"
-  admin_ssh_key      = file("./id_rsa.pub")
+  admin_ssh_key      {
+    username = "azureuser"
+    public_key = file("./id_rsa.pub")
+  } 
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-focal"
