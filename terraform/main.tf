@@ -348,13 +348,13 @@ SETTINGS
     publisher                  = "Microsoft.VisualStudio.Services"
     type                       = "TeamServicesAgentLinux"
     type_handler_version       = "1.22"
-    
+
     settings                   = <<SETTINGS
       {
-        agentDownloadUrl        = "https://vstsagentpackage.azureedge.net/agent/2.204.0/vsts-agent-linux-x64-2.204.0.tar.gz"
-        agentFolder             = "/agent"
-        enableScriptDownloadUrl = "https://vstsagenttools.blob.core.windows.net/tools/ElasticPools/Linux/13/enableagent.sh"
-        isPipelinesAgent        = true
+        "agentDownloadUrl": "https://vstsagentpackage.azureedge.net/agent/2.204.0/vsts-agent-linux-x64-2.204.0.tar.gz",
+        "agentFolder": "/agent",
+        "enableScriptDownloadUrl": "https://vstsagenttools.blob.core.windows.net/tools/ElasticPools/Linux/13/enableagent.sh",
+        "isPipelinesAgent": true
       }
 SETTINGS
     
