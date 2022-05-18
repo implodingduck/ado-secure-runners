@@ -328,8 +328,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   extension {
     name                 = "CustomScript"
     publisher            = "Microsoft.Azure.Extensions"
-    type                 = "CustomScriptForLinux"
-    type_handler_version = "2.0"
 
     settings = <<SETTINGS
     {
