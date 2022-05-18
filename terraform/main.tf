@@ -324,6 +324,22 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
       azurerm_user_assigned_identity.uai.id
     ]
   }
+
+  extension {
+    name                 = "CustomScript "
+    publisher            = "Microsoft.Azure.Extensions"
+    type                 = "CustomScriptForLinux"
+    type_handler_version = "2.0"
+
+    settings = <<SETTINGS
+    {
+      "fileUris": [
+        "https://raw.githubusercontent.com/implodingduck/ado-secure-runners/main/custom_install.sh"
+      ]
+      "commandToExecute" : "bash ./custom_install.sh"
+    }
+SETTINGS
+  }
 }
 
 resource "azurerm_user_assigned_identity" "uai" {
