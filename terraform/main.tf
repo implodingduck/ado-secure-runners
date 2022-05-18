@@ -340,6 +340,25 @@ resource "azurerm_linux_virtual_machine_scale_set" "runners" {
     }
 SETTINGS
   }
+
+  extension {
+    auto_upgrade_minor_version = false
+    automatic_upgrade_enabled  = false
+    name                       = "Microsoft.Azure.DevOps.Pipelines.Agent"
+    publisher                  = "Microsoft.VisualStudio.Services"
+    type                       = "TeamServicesAgentLinux"
+    type_handler_version       = "1.22"
+    
+    settings                   = <<SETTINGS
+      {
+        agentDownloadUrl        = "https://vstsagentpackage.azureedge.net/agent/2.204.0/vsts-agent-linux-x64-2.204.0.tar.gz"
+        agentFolder             = "/agent"
+        enableScriptDownloadUrl = "https://vstsagenttools.blob.core.windows.net/tools/ElasticPools/Linux/13/enableagent.sh"
+        isPipelinesAgent        = true
+      }
+SETTINGS
+    
+  }
 }
 
 resource "azurerm_user_assigned_identity" "uai" {
