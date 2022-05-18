@@ -278,6 +278,11 @@ resource "azurerm_route_table" "default" {
 
 }
 
+resource "azurerm_subnet_route_table_association" "example" {
+  subnet_id      = azurerm_subnet.default.id
+  route_table_id = azurerm_route_table.default.id
+}
+
 resource "azurerm_linux_virtual_machine_scale_set" "runners" {
   depends_on = [
     azurerm_firewall_network_rule_collection.https,
