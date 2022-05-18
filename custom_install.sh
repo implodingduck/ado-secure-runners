@@ -9,13 +9,12 @@ AZ_REPO=$(lsb_release -cs)
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
     sudo tee /etc/apt/sources.list.d/azure-cli.list
 
-sudo apt-get update
-sudo apt-get install -y azure-cli
-
-sudo az aks install-cli
-
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 
 sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt update
-sudo apt install -y terraform
+
+
+sudo apt-get update
+sudo apt-get install -y azure-cli terraform
+
+sudo az aks install-cli
